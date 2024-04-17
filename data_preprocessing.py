@@ -31,7 +31,11 @@ def df_prerpocessing(file_path):
 
     df = df[['shape', 'price', 'carat', 'cut', 'color', 'clarity', 'type']]
     # Сокращаем количество качества огранки до "low" и "hight"
-    df['cut'] = df['cut'].replace({"Fair": "low", "Very Good": "low", "Super Ideal": "hight"}, regex=True)
+    df['cut'] = df['cut'].replace({"Fair": "low",
+                                   "'Very Good'": "low",
+                                   "Very Good": "low",
+                                   "'Super Ideal'": "hight",
+                                   "Super Ideal": "hight"}, regex=True)
     df['cut'] = df['cut'].replace({"Good": "low", "Ideal": "hight"}, regex=True)
 
     df, y_data = df.drop(['cut'], axis=1), df['cut']

@@ -16,7 +16,7 @@ def delete_files(dir_path):
             file_path = os.path.join(dir_path, file)
             if os.path.isfile(file_path):
                 os.remove(file_path)
-        print("All files deleted successfully.")
+        print("All files from '" + dir_path + "' deleted successfully.")
     except OSError:
         print("Error occurred while deleting files.")
 
